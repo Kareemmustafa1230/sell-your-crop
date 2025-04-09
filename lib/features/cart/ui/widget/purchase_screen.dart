@@ -117,7 +117,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                            child: CustomFadeInDown(
                               duration: 1500,
                               child: ItemsPurchasing(
-                                type: "${context.translate(LangKeys.type)}: ${item.id ?? ""}",
+                                type: "${context.translate(LangKeys.type)}: ${item.type ?? ""}",
                                 quantity: '${context.translate(LangKeys.quantity)}: ${item.quantity ?? ""}',
                                 price: '${context.translate(LangKeys.price)}: ${item.price ?? ""}',
                                 date: '${context.translate(LangKeys.data)}: ${item.createdAt ?? ""}',

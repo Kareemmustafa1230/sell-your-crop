@@ -154,7 +154,7 @@ class _ScreenScreenState extends State<ScreenScreen> {
                                 if (item.img != null && item.img!.isNotEmpty) {
                                   return CarouselSliderImages(
                                     imageUrls: item.img!,
-                                    type: "${context.translate(LangKeys.type)}: ${item.id ?? ""}",
+                                    type: "${context.translate(LangKeys.type)}: ${item.type ?? ""}",
                                     quantity: '${context.translate(LangKeys.quantity)}: ${item.quantity ?? ""}',
                                     price: '${context.translate(LangKeys.price)}: ${item.price ?? ""}',
                                     date: '${context.translate(LangKeys.data)}: ${item.createdAt ?? ""}',
