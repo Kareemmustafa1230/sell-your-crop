@@ -18,6 +18,7 @@ class ApiConstants {
   static const String cities = "/cities";
   static const String store = "/crops";
   static const String updateProfile = "/user/update-profile";
+  static const String deleteProfile = "/user/delete-profile";
 
 
 

@@ -54,7 +54,11 @@ abstract class ApiService {
       @Body() CodeOtpRequest codeOtpRequest,
       @Header('Accept') String accept,
       @Header('Accept-Language') String acceptLanguage,
+      );
 
+  @DELETE(ApiConstants.deleteProfile)
+  Future<NumberPhoneAndChangePasswordAndLogOutAndComplaintAndTechnicalSupportResponse> deleteProfile(
+      @Header('Authorization') String authorization,
       );
 
   @POST(ApiConstants.updateNewPasswordProfile)

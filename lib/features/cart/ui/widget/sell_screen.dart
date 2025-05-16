@@ -114,7 +114,7 @@ class _SellScreenState extends State<SellScreen> {
                                 duration: 1500,
                                 child: CarouselSliderImages(
                                   imageUrls: item.img!,
-                                  type: "${context.translate(LangKeys.type)}: ${item.id ?? ""}",
+                                  type: "${context.translate(LangKeys.type)}: ${item.genre ?? ""}",
                                   quantity: '${context.translate(LangKeys.quantity)}: ${item.quantity ?? ""}',
                                   price: '${context.translate(LangKeys.price)}: ${item.price ?? ""}',
                                   date: '${context.translate(LangKeys.data)}: ${item.createdAt ?? ""}',
@@ -129,7 +129,7 @@ class _SellScreenState extends State<SellScreen> {
                                 duration: 1800,
                                 child: ItemsVideo(
                                   videoUrl: item.video ?? '',
-                                  type: "${context.translate(LangKeys.type)}: ${item.id ?? ""}",
+                                  type: "${context.translate(LangKeys.type)}: ${item.genre ?? ""}",
                                   quantity: '${context.translate(LangKeys.quantity)}: ${item.quantity ?? ""}',
                                   price: '${context.translate(LangKeys.price)}: ${item.price ?? ""}',
                                   date: '${context.translate(LangKeys.data)}: ${item.createdAt ?? ""}',

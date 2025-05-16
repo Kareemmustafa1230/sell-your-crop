@@ -199,6 +199,46 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<NumberPhoneAndChangePasswordAndLogOutAndComplaintAndTechnicalSupportResponse>
+      deleteProfile(String authorization) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': authorization};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<
+            NumberPhoneAndChangePasswordAndLogOutAndComplaintAndTechnicalSupportResponse>(
+        Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/user/delete-profile',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late NumberPhoneAndChangePasswordAndLogOutAndComplaintAndTechnicalSupportResponse
+        _value;
+    try {
+      _value =
+          NumberPhoneAndChangePasswordAndLogOutAndComplaintAndTechnicalSupportResponse
+              .fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<CodeOtpAndUpDataPasswordProfileResponse> updateNewPasswordProfile(
     UpDataPasswordRequest upDataPasswordRequest,
     String accept,

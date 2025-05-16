@@ -98,7 +98,7 @@ class AddCropUser extends StatelessWidget {
                 inputTextStyle: const TextStyle(
                   color: ColorApp.black00,
                 ),
-                textInputType: TextInputType.name,
+                textInputType: TextInputType.number,
                 hintText: ''
               //context.translate(LangKeys.enterName),
             ),
@@ -164,7 +164,7 @@ class AddCropUser extends StatelessWidget {
                 return CustomFadeInRight(
                   duration: 500,
                   child: CustomDropDownButton(
-                    hintText: 'Address',
+                    hintText: context.translate(LangKeys.address),
                     items: items,
                     onChanged: (value) {
                       cubit.cityId = value;

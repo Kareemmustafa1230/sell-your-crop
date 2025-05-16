@@ -18,6 +18,7 @@ import 'package:sell_your_crop/features/home_screen/logic/cubit/cities_cubit.dar
 import 'package:sell_your_crop/features/home_screen/logic/cubit/purchase_store_cubit.dart';
 import 'package:sell_your_crop/features/home_screen/logic/cubit/selling_store_cubit.dart';
 import 'package:sell_your_crop/features/setting/data/data_source/complaint_data_source.dart';
+import 'package:sell_your_crop/features/setting/data/data_source/delete_profile_data_source.dart';
 import 'package:sell_your_crop/features/setting/data/data_source/get_profile_data_source.dart';
 import 'package:sell_your_crop/features/setting/data/data_source/log_out_data_source.dart';
 import 'package:sell_your_crop/features/forget_password/data/repo/change_password_repo.dart';
@@ -25,12 +26,14 @@ import 'package:sell_your_crop/features/forget_password/data/repo/code_otp_repo.
 import 'package:sell_your_crop/features/setting/data/data_source/technical_support_data_source.dart';
 import 'package:sell_your_crop/features/setting/data/data_source/up_data_new_password_profile_data_source.dart';
 import 'package:sell_your_crop/features/setting/data/repo/complaint_repo.dart';
+import 'package:sell_your_crop/features/setting/data/repo/delete_profile_repo.dart';
 import 'package:sell_your_crop/features/setting/data/repo/get_profile_repo.dart';
 import 'package:sell_your_crop/features/setting/data/repo/log_out_repo.dart';
 import 'package:sell_your_crop/features/forget_password/logic/cubit/change_password_cubit.dart';
 import 'package:sell_your_crop/features/setting/data/repo/technical_support_repo.dart';
 import 'package:sell_your_crop/features/setting/data/repo/up_data_new_password_profile_repo.dart';
 import 'package:sell_your_crop/features/setting/logic/cubit/complaint_cubit.dart';
+import 'package:sell_your_crop/features/setting/logic/cubit/delete_profile_cubit.dart';
 import 'package:sell_your_crop/features/setting/logic/cubit/get_profile_cubit.dart';
 import 'package:sell_your_crop/features/setting/logic/cubit/log_out_cubit.dart';
 import 'package:sell_your_crop/features/login/data/repo/login_repo.dart';
@@ -71,7 +74,6 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<SharedPrefHelper>(() => SharedPrefHelper());
   getIt.registerFactory(AppCubit.new);
   getIt.registerSingleton<GlobalKey<NavigatorState>>(navigatorKey);
-
    // login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
@@ -144,4 +146,8 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<SellingStoreRepo>(() => SellingStoreRepo(getIt()));
   getIt.registerFactory<SellingStoreCubit>(() => SellingStoreCubit(getIt()));
   getIt.registerLazySingleton<SellingStoreDataSource>(() => SellingStoreDataSource(getIt()));
+  //deleteProfile
+  getIt.registerLazySingleton<DeleteProfileRepo>(() => DeleteProfileRepo(getIt()));
+  getIt.registerFactory<DeleteProfileCubit>(() => DeleteProfileCubit(getIt()));
+  getIt.registerLazySingleton<DeleteProfileDataSource>(() => DeleteProfileDataSource(getIt()));
 }

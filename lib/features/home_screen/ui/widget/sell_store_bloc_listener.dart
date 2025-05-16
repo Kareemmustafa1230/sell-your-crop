@@ -13,13 +13,16 @@ class SellStoreBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<SellingStoreCubit, SellingStoreState>(
       listener: (context, state) async {
-        if (state is Success) {
-          toast(text: state.message, color: Colors.green);
-          context.pushWithTransition(screen:const Home());
-        } else if (state is Error) {
-          toast(text:state.error, color: Colors.red);
-        } else if (state is Loading) {
-        }
+        state.maybeWhen(
+          success: (message) {
+            toast(text: message, color: Colors.green);
+            context.pushWithTransition(screen: const Home());
+          },
+          error: (error) {
+            toast(text: error, color: Colors.red);
+          },
+          orElse: () {},
+        );
       },
       child: const SizedBox.shrink(),
     );

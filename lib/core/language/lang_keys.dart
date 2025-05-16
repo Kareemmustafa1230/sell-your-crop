@@ -93,5 +93,8 @@ class LangKeys {
   static const String number = 'number';
   static const String nameOwner = "name_owner";
   static const String complaint = "complaint";
+  static const String deleteProfile = "DeleteProfile";
+
+
 }
 

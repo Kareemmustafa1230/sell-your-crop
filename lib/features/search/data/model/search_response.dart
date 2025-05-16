@@ -30,7 +30,6 @@ class Data {
   String? genre;
   String? target;
   String? quantity;
-  @JsonKey(name:'Price')
   String? price;
   String? phone;
   String? video;

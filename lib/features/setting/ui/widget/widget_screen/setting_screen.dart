@@ -11,6 +11,8 @@ import 'package:sell_your_crop/features/setting/ui/screen/company_policy.dart';
 import 'package:sell_your_crop/features/setting/ui/screen/complaints.dart';
 import 'package:sell_your_crop/features/setting/ui/screen/technical_support.dart';
 import 'package:sell_your_crop/features/setting/ui/widget/bloc_listener_widget/log_out_bloc_listener.dart';
+import 'package:sell_your_crop/features/setting/ui/widget/button_delete_profile_user.dart';
+import 'package:sell_your_crop/features/setting/ui/widget/delete_profile_bloc_listener.dart';
 import 'package:sell_your_crop/features/setting/ui/widget/item_setting_container.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -45,7 +47,10 @@ class SettingScreen extends StatelessWidget {
                    CustomFadeInLeft(
                     duration: 500,
                     child:ItemSettingContainer(text: context.translate(LangKeys.complaints), image: 'assets/svg/Info_light.svg', onTap: () {context.pushWithTransition(screen:const Complaints());},),),
-                  SizedBox(height: 165.h,),
+                  SizedBox(height: 150.h,),
+                  const ButtonDeleteProfileUser(),
+                  const DeleteProfileBlocListener(),
+                  SizedBox(height: 20.h,),
                   const ButtonLogOutUser(),
                   const LogOutBlocListeners(),
                 ],

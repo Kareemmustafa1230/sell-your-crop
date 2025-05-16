@@ -100,7 +100,7 @@ class PurchaseCropUser extends StatelessWidget {
                 inputTextStyle: const TextStyle(
                   color: ColorApp.black00,
                 ),
-                textInputType: TextInputType.name,
+                textInputType: TextInputType.number,
                 hintText: ''
                 //context.translate(LangKeys.enterName),
               ),

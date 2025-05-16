@@ -1,0 +1,2 @@
+C:/Users/ZBOOK/AndroidStudioProjects/sell_your_crop/android/app/.cxx/RelWithDebInfo/v1m1c6s3/x86/CMakeFiles/edit_cache.dir
+C:/Users/ZBOOK/AndroidStudioProjects/sell_your_crop/android/app/.cxx/RelWithDebInfo/v1m1c6s3/x86/CMakeFiles/rebuild_cache.dir

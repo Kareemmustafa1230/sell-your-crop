@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sell_your_crop/core/helpers/extensions.dart';
 import 'package:sell_your_crop/core/theme/Color/colors.dart';
 import 'package:sell_your_crop/features/home_screen/logic/cubit/selling_store_cubit.dart';
@@ -17,33 +16,35 @@ class ButtonSell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SellingStoreCubit, SellingStoreState>(
-        builder: (context, state) {
-          return state is Loading
-              ? const Center(
-            child: SpinKitFadingCircle(color: Colors.green),
-          )
-              : CustomFadeInRight(
-            duration: 600,
-            child: TextButtonScreen(
-              color: ColorApp.green73,
-              value2: 54.h,
-              value1: 335.w,
-              onPressed: () {
-                validateThenDoPurchaseStore(context);
-              },
-              child: Text(context.translate(LangKeys.addACrop),
-                style: TextStyleApp.font19green73Weight600.copyWith(
-                    color: ColorApp.whiteFF),
+      builder: (context, state) {
+        final isLoading = state.maybeWhen(
+          loading: () => true,
+          uploading: (_) => true,
+          orElse: () => false,
+        );
+
+        return CustomFadeInRight(
+          duration: 600,
+          child: TextButtonScreen(
+            color: ColorApp.green73,
+            value2: 54.h,
+            value1: 335.w,
+            onPressed: isLoading ? null : () => validateThenDoPurchaseStore(context),
+            child: Text(
+              context.translate(LangKeys.addACrop),
+              style: TextStyleApp.font19green73Weight600.copyWith(
+                color: ColorApp.whiteFF,
               ),
             ),
-          );
-        }
+          ),
+        );
+      },
     );
   }
 
   void validateThenDoPurchaseStore(BuildContext context) {
-      if (context.read<SellingStoreCubit>().formKey.currentState!.validate()) {
-          context.read<SellingStoreCubit>().emitSellingStoreStates();
-      }
+    if (context.read<SellingStoreCubit>().formKey.currentState!.validate()) {
+      context.read<SellingStoreCubit>().emitSellingStoreStates();
+    }
   }
 }
